@@ -13,7 +13,7 @@ Route::get('/', [MainController::class, 'index'])->name('home');
  */
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login_check', [LoginController::class, 'loginCheck'])->name('login.check');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('CheckUserLoggedIn');
 
 /**
  * Signup Routes
@@ -24,4 +24,4 @@ Route::post('/register_check', [SignupController::class, 'registerSave'])->name(
 /**
  * Dashboard Routes
  */
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('CheckUserLoggedIn');
