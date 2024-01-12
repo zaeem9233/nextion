@@ -13,6 +13,7 @@ Route::get('/', [MainController::class, 'index'])->name('home');
  */
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login_check', [LoginController::class, 'loginCheck'])->name('login.check');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 /**
  * Signup Routes

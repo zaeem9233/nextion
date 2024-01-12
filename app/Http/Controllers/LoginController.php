@@ -21,11 +21,16 @@ class LoginController extends Controller
         if(\Auth::attempt($request->only('email', 'password'))){
             $request->session()->regenerate();
             echo 'Yes';
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
 
         }
 
         return redirect()->back()->with(['error'=>'Email or Password not matched.'])->withInput();
 
+    }
+
+    public function logout(Request $request){
+        auth()->logout();
+        return redirect()->route('home')->with(['success' => 'Logout successfully.']);
     }
 }

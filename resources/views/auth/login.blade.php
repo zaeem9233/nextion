@@ -13,7 +13,7 @@
         <h2 class="card-title">Login</h2>
 
         @if(session('error'))
-          <div class="alert alert-danger mt-4" role="alert">
+          <div class="alert alert-success mt-4" role="alert">
             {{ session('error') }}
           </div>
         @endif

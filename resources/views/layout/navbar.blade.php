@@ -34,8 +34,15 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Profile</a>
+                        
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()">
+                                Logout
+                            </a>
+                        </form>
                     </div>
                 </li>
             </ul>

@@ -43,8 +43,6 @@
                     
                     <h2>@yield('title')</h2>
 
-                    <hr>
-
                     @yield('content')
 
                   </div>
