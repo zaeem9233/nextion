@@ -13,7 +13,7 @@
             <h2 class="card-title">Access to Dashboard</h2>
 
             @if(session('success'))
-              <div class="alert alert-danger mt-4" role="alert">
+              <div class="alert alert-success mt-4" role="alert">
                 {{ session('success') }}
               </div>
             @endif
