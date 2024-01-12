@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Dashboard | Nextion')
+@section('title', 'Dashboard')
 
 @section('content')
 
