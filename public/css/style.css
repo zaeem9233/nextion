@@ -1,0 +1,25 @@
+.navbar-brand-custom{
+  padding-left: 0.3125rem;
+  padding-right: 0.3125rem;
+  border-radius: 6px;
+}
+.navbar-toggler{
+  color: white !important;
+}
+.navbar-toggler-icon{
+  color: white !important;
+}
+.sidemenu-vh{
+  min-height: calc(100vh - 66px) !important;
+}
+
+
+.bottom-shadow{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.top-shadow{
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+.bg-custom-primary{
+  background-color: #93D500;
+}

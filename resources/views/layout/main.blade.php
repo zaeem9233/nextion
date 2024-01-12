@@ -8,9 +8,17 @@
     @include('layout.navbar')
 
     <main>
+      <div class="container-fluid">
+        <div class="row flex-nowrap">
         
-      @yield('content')
+          @include('layout.sidemenu')
+          
+          <div class="col py-3">
+            @yield('content')
+          </div>
 
+        </div>
+      </div>
     </main>
 
     @include('layout.footer')
