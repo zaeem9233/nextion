@@ -11,14 +11,24 @@
         <x-show-logo-auth />
 
         <h2 class="card-title">Registration</h2>
-        <form action="" method="post" class="mt-4 text-left">
-            <x-input name="name" type="text" id="name" title="Full Name" value="" message="{{ (isset($message))? $message : null }}"  />
+
+        @if(session('error'))
+          <div class="alert alert-danger mt-4" role="alert">
+            {{ session('error') }}
+          </div>
+        @endif
+
+        <form action="{{ route('register.save') }}" method="post" class="mt-4 text-left">
             
-            <x-input name="email" type="email" id="email" title="Email" value="" message="{{ (isset($message))? $message : null }}"  />
+            @csrf
+
+            <x-input name="name" type="text" id="name" title="Full Name" value="{{ old('name') }}" message="{{ (isset($message))? $message : null }}"  />
+            
+            <x-input name="email" type="email" id="email" title="Email" value="{{ old('email') }}" message="{{ (isset($message))? $message : null }}"  />
 
             <x-input name="password" type="password" id="password" title="Password" value="" message="{{ (isset($message))? $message : null }}"  />
 
-            <x-input name="confirm_password" type="password" id="confirm_password" title="Confirm Password" value="" message="{{ (isset($message))? $message : null }}"  />
+            <x-input name="password_confirmation" type="password" id="confirm_password" title="Confirm Password" value="" message="{{ (isset($message))? $message : null }}"  />
 
             <div class="mt-4">
 
