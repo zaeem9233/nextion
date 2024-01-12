@@ -11,8 +11,18 @@
         <x-show-logo-auth />
 
         <h2 class="card-title">Login</h2>
-        <form action="" method="post" class="mt-4 text-left">
-            <x-input name="email" type="email" id="email" title="Email" value="" message="{{ (isset($message))? $message : null }}"  />
+
+        @if(session('error'))
+          <div class="alert alert-danger mt-4" role="alert">
+            {{ session('error') }}
+          </div>
+        @endif
+
+        <form action="{{ route('login.check') }}" method="post" class="mt-4 text-left">
+
+            @csrf
+
+            <x-input name="email" type="email" id="email" title="Email" value="{{ old('email') }}" message="{{ (isset($message))? $message : null }}"  />
 
             <x-input name="password" type="password" id="password" title="Password" value="" message="{{ (isset($message))? $message : null }}"  />
 
