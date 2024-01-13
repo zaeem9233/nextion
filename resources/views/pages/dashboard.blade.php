@@ -12,7 +12,7 @@
         <p class="card-text">View clients information, posts, albums and images.</p>
         <div class="row">
           <div class="col-md-12 text-center">
-            <a href="#" class="btn btn-primary">Clients</a>
+            <a href="{{ route('clients') }}" class="btn btn-primary"><i class="fas fa-users"></i> Clients</a>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
         <p class="card-text">View your profile setting like name, email etc.</p>
         <div class="row">
           <div class="col-md-12 text-center">
-            <a href="{{ route('profile') }}" class="btn btn-primary">Profile</a>
+            <a href="{{ route('profile') }}" class="btn btn-primary"><i class="fas fa-user"></i> Profile</a>
           </div>
         </div>
       </div>
@@ -40,7 +40,12 @@
         <p class="card-text">Do not leave dashboard open for security reasons.</p>
         <div class="row">
           <div class="col-md-12 text-center">
-            <a href="#" class="btn btn-danger">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="post">
+              @csrf
+              <a class="btn btn-danger" href="#" onclick="document.getElementById('logout-form').submit()">
+                <i class="fas fa-sign-out"></i> Logout
+              </a>
+          </form>
           </div>
         </div>
       </div>

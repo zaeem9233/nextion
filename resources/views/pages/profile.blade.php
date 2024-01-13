@@ -24,7 +24,7 @@
             <x-input name="email" type="email" id="email" title="Email" value="{{ (old('email')!==null)? old('email') : $email }}" message="{{ (isset($message))? $message : null }}"  />
             
             <div class="mt-4 d-grid gap-2">
-              <x-submit-button text="Update Profile" />
+              <x-submit-button text="Update Profile" iconClass="fas fa-user-cog" />
 
               <x-reset-button />
             </div>
@@ -56,7 +56,7 @@
             <x-input name="password_confirmation" type="password" id="confirm_password" title="Confirm Password" value="" message="{{ (isset($message))? $message : null }}"  />
 
             <div class="mt-4 d-grid gap-2">
-              <x-submit-button text="Change Password" />
+              <x-submit-button text="Change Password" iconClass="fas fa-user-cog" />
 
               <x-reset-button />
             </div>

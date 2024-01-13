@@ -10,20 +10,6 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ">
-                <!-- Dropdown with profile image -->
-                <li class="nav-item dropdown">
-                    <button class="nav-link dropdown-toggle btn btn-default text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Client
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('clients') }}">Clients</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <!-- Dropdown with profile image -->
                 <li class="nav-item dropdown">
@@ -31,14 +17,14 @@
                         <img src="/images/profile.png" alt="Profile" class="rounded-circle" width="30" height="30">
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user"></i> Profile</a>
                         
                         <div class="dropdown-divider"></div>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="post">
                             @csrf
                             <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()">
-                                Logout
+                                <i class="fa fa-sign-out"></i> Logout
                             </a>
                         </form>
                     </div>

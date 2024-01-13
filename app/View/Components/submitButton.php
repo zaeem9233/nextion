@@ -10,10 +10,12 @@ class submitButton extends Component
 {
 
     public $text;
+    public $iconClass;
 
-    public function __construct($text)
+    public function __construct($text, $iconClass)
     {
         $this->text = $text;
+        $this->iconClass = $iconClass;
     }
 
     /**

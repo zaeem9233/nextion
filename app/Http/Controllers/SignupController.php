@@ -28,7 +28,7 @@ class SignupController extends Controller
         $user = User::create($request->only('name', 'email', 'password'));
 
         if(\Auth::attempt($request->only('email', 'password'))){
-            return redirect()->route('home');
+            return redirect()->route('dashboard')->with('success', 'Account created successfully');
         }
 
         return back()->with(['error', 'Something error occur try again'])->withInput();

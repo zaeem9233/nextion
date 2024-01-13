@@ -32,7 +32,7 @@
 
             <div class="mt-4  d-grid gap-2">
 
-              <x-submit-button text="Signup" />
+              <x-submit-button text="Signup" iconClass="fas fa-user-plus" />
 
               <x-reset-button />
             
