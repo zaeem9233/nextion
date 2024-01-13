@@ -28,7 +28,7 @@
 
 @if(session('error'))
   <script>
-  Command: toastr["error"]("{{session('error')}}", "Warning!")
+  Command: toastr["error"]("{{session('error')}}", "Error!")
   toastr.options = {
     "closeButton": true,
     "debug": false,

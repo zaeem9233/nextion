@@ -26,7 +26,7 @@
         <p class="card-text">View your profile setting like name, email etc.</p>
         <div class="row">
           <div class="col-md-12 text-center">
-            <a href="#" class="btn btn-primary">Profile</a>
+            <a href="{{ route('profile') }}" class="btn btn-primary">Profile</a>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index'])->name('home');
@@ -31,3 +32,6 @@ Route::get('/clients', [ClientController::class, 'clients'])->name('clients')->m
 Route::get('/client/{id}', [ClientController::class, 'client'])->name('client')->middleware('CheckUserLoggedIn');
 Route::get('/album/{albumId}', [AlbumController::class, 'album'])->name('album')->middleware('CheckUserLoggedIn');
 Route::get('/photo/{photoId}', [AlbumController::class, 'photo'])->name('photo')->middleware('CheckUserLoggedIn');
+Route::get('/profile', [UserController::class, 'profile'])->name('profile')->middleware('CheckUserLoggedIn');
+Route::post('/profile/update', [UserController::class, 'profile_update'])->name('profile.update')->middleware('CheckUserLoggedIn');
+Route::post('/profile/password/update', [UserController::class, 'password_update'])->name('profile.password.update')->middleware('CheckUserLoggedIn');
