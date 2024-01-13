@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserRegistered;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,9 @@ class SignupController extends Controller
         );
 
         $user = User::create($request->only('name', 'email', 'password'));
+
+        //call event to send verification email
+        event(new UserRegistered($user));
 
         if(\Auth::attempt($request->only('email', 'password'))){
             return redirect()->route('dashboard')->with('success', 'Account created successfully');

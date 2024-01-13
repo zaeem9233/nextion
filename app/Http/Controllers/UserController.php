@@ -41,4 +41,17 @@ class UserController extends Controller
 
         return back()->with('success', 'Password changed');
     }
+
+    public function verify_email($token){
+        $users = User::where('email_verify_token', $token)->get();
+        // dd($users);
+        foreach($users as $user){
+            $user->update([
+                'email_verified_at' => now(),
+            ]);
+            return view('pages.email-verified', ['message'=>'Email has been verified']);
+        }
+
+        return view('pages.email-verified', ['message'=>'Email verification failed']);
+    }
 }

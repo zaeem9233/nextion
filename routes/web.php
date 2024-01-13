@@ -27,11 +27,18 @@ Route::post('/register_check', [SignupController::class, 'registerSave'])->name(
 /**
  * Dashboard Routes
  */
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('CheckUserLoggedIn');
-Route::get('/clients', [ClientController::class, 'clients'])->name('clients')->middleware('CheckUserLoggedIn');
-Route::get('/client/{id}', [ClientController::class, 'client'])->name('client')->middleware('CheckUserLoggedIn');
-Route::get('/album/{albumId}', [AlbumController::class, 'album'])->name('album')->middleware('CheckUserLoggedIn');
-Route::get('/photo/{photoId}', [AlbumController::class, 'photo'])->name('photo')->middleware('CheckUserLoggedIn');
-Route::get('/profile', [UserController::class, 'profile'])->name('profile')->middleware('CheckUserLoggedIn');
-Route::post('/profile/update', [UserController::class, 'profile_update'])->name('profile.update')->middleware('CheckUserLoggedIn');
-Route::post('/profile/password/update', [UserController::class, 'password_update'])->name('profile.password.update')->middleware('CheckUserLoggedIn');
+Route::middleware('CheckUserLoggedIn')->group(function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/clients', [ClientController::class, 'clients'])->name('clients');
+    Route::get('/client/{id}', [ClientController::class, 'client'])->name('client');
+    Route::get('/album/{albumId}', [AlbumController::class, 'album'])->name('album');
+    Route::get('/photo/{photoId}', [AlbumController::class, 'photo'])->name('photo');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::post('/profile/update', [UserController::class, 'profile_update'])->name('profile.update');
+    Route::post('/profile/password/update', [UserController::class, 'password_update'])->name('profile.password.update');
+});
+
+/**
+ * Verify Email Route
+ */
+Route::get('/email/verify/{token}', [UserController::class, 'verify_email'])->name('email.verify');
