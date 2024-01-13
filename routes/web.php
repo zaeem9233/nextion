@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
@@ -25,3 +26,5 @@ Route::post('/register_check', [SignupController::class, 'registerSave'])->name(
  * Dashboard Routes
  */
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('CheckUserLoggedIn');
+Route::get('/clients', [ClientController::class, 'clients'])->name('clients')->middleware('CheckUserLoggedIn');
+Route::get('/client/{id}', [ClientController::class, 'client'])->name('client')->middleware('CheckUserLoggedIn');
