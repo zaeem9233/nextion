@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
@@ -28,3 +29,5 @@ Route::post('/register_check', [SignupController::class, 'registerSave'])->name(
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('CheckUserLoggedIn');
 Route::get('/clients', [ClientController::class, 'clients'])->name('clients')->middleware('CheckUserLoggedIn');
 Route::get('/client/{id}', [ClientController::class, 'client'])->name('client')->middleware('CheckUserLoggedIn');
+Route::get('/album/{albumId}', [AlbumController::class, 'album'])->name('album')->middleware('CheckUserLoggedIn');
+Route::get('/photo/{photoId}', [AlbumController::class, 'photo'])->name('photo')->middleware('CheckUserLoggedIn');

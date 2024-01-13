@@ -30,7 +30,7 @@
 
             <x-input name="password_confirmation" type="password" id="confirm_password" title="Confirm Password" value="" message="{{ (isset($message))? $message : null }}"  />
 
-            <div class="mt-4">
+            <div class="mt-4  d-grid gap-2">
 
               <x-submit-button text="Signup" />
 

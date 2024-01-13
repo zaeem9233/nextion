@@ -76,7 +76,7 @@
                         
                         @foreach($albums as $album)
                             <h5>
-                                <a href="#!" class="text-decoration-none">
+                                <a href="{{ route('album', ['albumId'=>$album['id']]) }}" class="text-decoration-none">
                                     {{ $album['title'] }}
                                 </a>
                             </h5>

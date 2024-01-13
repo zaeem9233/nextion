@@ -1,3 +1,3 @@
-<button class="btn btn-primary btn-block" type="submit">
+<button class="btn btn-primary" type="submit">
     {{$text}}
 </button>

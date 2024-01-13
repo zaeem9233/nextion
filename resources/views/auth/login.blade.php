@@ -26,7 +26,7 @@
 
             <x-input name="password" type="password" id="password" title="Password" value="" message="{{ (isset($message))? $message : null }}"  />
 
-            <div class="mt-4">
+            <div class="mt-4 d-grid gap-2">
               <x-submit-button text="Login" />
 
               <x-reset-button />

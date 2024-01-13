@@ -1,3 +1,3 @@
-<button class="btn btn-secondary btn-block" type="reset">
+<button class="btn btn-secondary" type="reset">
     Reset
 </button>
