@@ -48,3 +48,26 @@
   }
   </script>
 @endif
+
+@if(auth()->check() && !session('error') && !session('success') && auth()->user()->email_verified_at==null)
+  <script>
+  Command: toastr["error"]("Email not verified!", "Email Error!")
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+  </script>
+@endif

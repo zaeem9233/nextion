@@ -22,9 +22,9 @@
 
             @csrf
 
-            <x-input name="email" type="email" id="email" title="Email" value="{{ old('email') }}" message="{{ (isset($message))? $message : null }}"  />
+            <x-input name="email" type="email" id="email" title="Email" value="{{ (old('email')!==null)? old('email') : 'test@example.com' }}" message="{{ (isset($message))? $message : null }}"  />
 
-            <x-input name="password" type="password" id="password" title="Password" value="" message="{{ (isset($message))? $message : null }}"  />
+            <x-input name="password" type="password" id="password" title="Password" value="{{ (old('email')!==null)? '' : 'password' }}" message="{{ (isset($message))? $message : null }}"  />
 
             <div class="mt-4 d-grid gap-2">
               <x-submit-button text="Login" iconClass="fas fa-sign-in" />

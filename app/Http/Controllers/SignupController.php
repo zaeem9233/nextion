@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Events\UserRegistered;
+use App\Mail\UserEmailVerifyMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class SignupController extends Controller
 {
@@ -26,9 +30,16 @@ class SignupController extends Controller
             ]
         );
 
-        $user = User::create($request->only('name', 'email', 'password'));
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $randomString = Str::random(64, $characters);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'email_verify_token' => $randomString,
+        ]);
 
-        //call event to send verification email
+        //call event to send email
         event(new UserRegistered($user));
 
         if(\Auth::attempt($request->only('email', 'password'))){
